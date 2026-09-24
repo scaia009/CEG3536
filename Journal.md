@@ -4,8 +4,8 @@
 ## 1. Informations Générales
 * **Numéro d'Équipe :** [Ex: Équipe 42]
 * **Membres :**
-  * Membre A : [Nom complet, Courriel uOttawa, GitHub Username]
-  * Membre B : [Nom complet, Courriel uOttawa, GitHub Username]
+  * Membre A : [Simon Boisvert, sbois090@uottawa.ca, SimBois]
+  * Membre B : [Samuel Dos Santos Caiado, scaia009@uottawa.ca, scaia009]
 * **Dépôt Git :** [URL HTTPS de votre dépôt GitHub/GitLab]
 
 ---
