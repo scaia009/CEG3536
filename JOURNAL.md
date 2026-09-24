@@ -85,16 +85,16 @@
 ## Tableau des essais (T1 à T10)
 | Essai | Date | Résultat observé | Verdict | Preuve (fichier) |
 |---|---|---|---|---|
-| T1 Réinitialisation | | | | |
-| T2 Cycle User | | | | |
-| T3 Anti-rebond | | | | |
-| T4 Niveaux logiques | | | | |
-| T5 E-Stop | | | | |
-| T6 Clignotement | | | | |
-| T7 Acquittement | | | | |
-| T8 User ignoré en urgence | | | | |
-| T9 Touch En hors urgence | | | | |
-| T10 Robustesse | | | | |
+| T1 Réinitialisation | 25 septembre 2026 |  |  | |
+| T2 Cycle User | 25 septembre 2026 |  | | |
+| T3 Anti-rebond | 25 septembre 2026 | | | |
+| T4 Niveaux logiques | 25 septembre 2026 | | | |
+| T5 E-Stop | 2 octobre 2026 | | | |
+| T6 Clignotement | 2 octobre 2026 | | | |
+| T7 Acquittement | 2 octobre 2026 | | | |
+| T8 User ignoré en urgence | 2 octobre 2026 | | | |
+| T9 Touch En hors urgence | 2 octobre 2026 | | | |
+| T10 Robustesse | 2 octobre 2026 | | | |
 
 ## Routine conservée pour L3-A
 - Routine : `button_pressed` ou `led_set`
