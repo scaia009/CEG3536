@@ -63,7 +63,7 @@
   GPIOA_IDR : bit 9 à 1.
   LD3 rouge allumée sur PA9.
 - Validations Git (auteur, message) :
-  Simon Boisvert — validation de la séance 0 et du premier programme assembleur.
+  Simon Boisvert — réalisation de la séance 0 et du premier programme assembleur.
   Samuel Caiado — validation de la séance 0 et vérification du dépôt/journal.
 
 ### Séance 1 — `25 septembre 2026` — réalise : `Samuel Caiado` / valide : `Simon Boisvert`
