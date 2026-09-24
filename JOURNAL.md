@@ -20,14 +20,14 @@
 ### Rôles et rotation
 | Séance | Réalise | Valide (essais, mesures, relecture) |
 |---|---|---|
-| Séance 0 | | |
-| Séance 1 | | |
-| Séance 2 | | |
+| Séance 0 | Simon Boisvert | Samuel Caiado |
+| Séance 1 | Samuel Caiado | Simon Boisvert |
+| Séance 2 | Simon Boisvert | Samuel Caiado |
 
 ### Échéancier des laboratoires 1 à 5
 | Laboratoire | Séances | Démonstration | Remise | Responsable du suivi |
 |---|---|---|---|---|
-| 1 | | | 9 octobre 2026 | |
+| 1 | #0, #1 et #2 | 2 octobre 2026 | 9 octobre 2026 | Simon Boisvert |
 | 2 | | | | |
 | 3 | | | | |
 | 4 | | | | |
