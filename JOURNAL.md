@@ -35,7 +35,7 @@
 
 ## Journal des séances
 
-### Séance 0 — `<date>` — réalise : `<nom>` / valide : `<nom>`
+### Séance 0 — `18 septembre 2026` — réalise : `Simon Boisvert` / valide : `Samuel Caiado`
 - Objectifs :
 - Fait :
 - Décisions :
@@ -43,7 +43,7 @@
 - Essais et mesures :
 - Validations Git (auteur, message) :
 
-### Séance 1 — `<date>` — réalise : `<nom>` / valide : `<nom>`
+### Séance 1 — `25 septembre 2026` — réalise : `Samuel Caiado` / valide : `Simon Boisvert`
 - Objectifs :
 - Fait :
 - Décisions :
@@ -51,7 +51,7 @@
 - Essais et mesures :
 - Validations Git :
 
-### Séance 2 — `<date>` — réalise : `<nom>` / valide : `<nom>`
+### Séance 2 — `2 octobre 2026` — réalise : `Simon Boisvert` / valide : `Samuel Caiado`
 - Objectifs :
 - Fait :
 - Décisions :
