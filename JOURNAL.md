@@ -20,12 +20,14 @@ configuration additionnelle du RCC pour l'horloge système. |
 
 | E2 | Le bouton User doit permettre à l'utilisateur de faire 
 défiler manuellement les états de marche du véhicule, dans un ordre fixe 
-qui passe toujours par l'état ARRÊT lors d'un changement de sens. | Chaque appui validé (un seul événement par 
+qui passe toujours par l'état ARRÊT lors d'un changement de sens. |
+Chaque appui validé (un seul événement par 
 appui, voir E3) sur User fait avancer l'état selon la séquence 
 ARRÊT → MARCHE_AVANT → ARRÊT → MARCHE_ARRIÈRE → ARRÊT (rouge → verte → 
 rouge → bleue → rouge). Une seule DEL est allumée à la fois, jamais deux 
 simultanément, et le système ne peut jamais passer directement de 
-MARCHE_AVANT à MARCHE_ARRIÈRE sans repasser par ARRÊT. | Le bouton User (PC13) est actif à l'appui selon le 
+MARCHE_AVANT à MARCHE_ARRIÈRE sans repasser par ARRÊT. |
+Le bouton User (PC13) est actif à l'appui selon le 
 niveau logique confirmé à l'essai T4 (lecture du registre IDR); la 
 logique de défilement utilise le résultat déjà normalisé (« appuyé = 1 ») 
 fourni par button_raw, donc elle est indépendante du niveau électrique 
@@ -34,10 +36,12 @@ réel du bouton. |
 | E3 | La lecture du bouton User doit filtrer les rebonds 
 mécaniques du contact afin qu'un seul appui physique ne génère jamais 
 plus d'un événement, et qu'un appui maintenu ne génère qu'un seul 
-événement plutôt qu'une répétition continue. | Avec une fenêtre d'anti-rebond de 20 à 
+événement plutôt qu'une répétition continue. |
+Avec une fenêtre d'anti-rebond de 20 à 
 50 ms, 20 appuis consécutifs sur User doivent produire exactement 20 
 transitions d'état, sans détection double ni appui manqué; un appui 
-maintenu sur plusieurs secondes ne doit produire qu'une seule transition. | La boucle principale appelle fsm_step (et donc 
+maintenu sur plusieurs secondes ne doit produire qu'une seule transition. |
+La boucle principale appelle fsm_step (et donc 
 button_pressed) à une cadence d'environ 1 ms (PERIODE_SCRUTATION_MS), 
 ce qui sert de base de temps à l'anti-rebond; une fenêtre initiale de 
 [20 à 50, valeur à préciser selon vos tests] échantillons consécutifs 
