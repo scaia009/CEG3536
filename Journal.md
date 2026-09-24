@@ -15,13 +15,13 @@
 ### A. Rôles et Rotation pour le Laboratoire 1
 Afin de respecter la politique de rotation des rôles, la structure suivante est adoptée :
 * **Séance 0 (Prise en main) :** 
-  * Réalisation : Membre A & Membre B (Configuration conjointe du projet et du dépôt Git)
+  * Réalisation : Membre A & Membre B
 * **Séance 1 (Mise en œuvre - E1 à E3) :** 
-  * Réalisation (Code) : **[Nom du membre A]**
-  * Validation (Essais & Relecture) : **[Nom du membre B]**
+  * Réalisation (Code) : **[Simon Boisvert]**
+  * Validation (Essais & Relecture) : **[Samuel Caiado]**
 * **Séance 2 (Achèvement & Démo - E4 à E9) :** 
-  * Réalisation (Code) : **[Nom du membre B]**
-  * Validation (Essais & Relecture) : **[Nom du membre A]**
+  * Réalisation (Code) : **[Samuel Caiado]**
+  * Validation (Essais & Relecture) : **[Simon Boisvert]**
 
 ### B. Échéancier de l'Équipe (Laboratoires 1 à 5)
 * **Lab 1 (Panneau de commande) :** 
