@@ -1,6 +1,6 @@
 # JOURNAL.md — Journal d'équipe, CEG 3536, laboratoire 1 (automne 2026)
 
-Équipe : `<NomA>` et `<NomB>` — Section : `A01 / A02` — Dépôt Git : `<adresse>`
+Équipe : `Simon Boisvert` et `Samuel Caiado` — Section : `A02` — Dépôt Git : `<adresse>`
 
 ## Jalon J1 (au plus tard le vendredi 25 septembre 2026, validé dans Git)
 
