@@ -2,7 +2,6 @@
 # Journal d'Équipe - Laboratoire 1 (CEG 3536)
 
 ## 1. Informations Générales
-* **Numéro d'Équipe :** [Ex: Équipe 42]
 * **Membres :**
   * Membre A : [Simon Boisvert, sbois090@uottawa.ca, SimBois]
   * Membre B : [Samuel Dos Santos Caiado, scaia009@uottawa.ca, scaia009]
@@ -26,7 +25,7 @@ Afin de respecter la politique de rotation des rôles, la structure suivante est
 ### B. Échéancier de l'Équipe (Laboratoires 1 à 5)
 * **Lab 1 (Panneau de commande) :** 
   * Jalon J1 validé : 25 septembre 2026
-  * Démonstration : [29 septembre (A02) OU 2 octobre (A01)] 2026
+  * Démonstration : 2 octobre (A01) 2026
   * Remise du rapport : 9 octobre 2026, 23 h 59
 * **Lab 2 (Commande du moteur & SysTick) :** En attente des directives.
 * **Lab 3 (Interface C / Assembleur) :** En attente des directives.
