@@ -17,6 +17,7 @@ chaque réinitialisation. | L'horloge du microcontrôleur reste celle configuré
 défaut au démarrage (MSI à 4 MHz), puisque SystemInit est vide dans le 
 code de départ; le délai de 100 ms est donc facilement respecté sans 
 configuration additionnelle du RCC pour l'horloge système. |
+
 | E2 | Le bouton User doit permettre à l'utilisateur de faire 
 défiler manuellement les états de marche du véhicule, dans un ordre fixe 
 qui passe toujours par l'état ARRÊT lors d'un changement de sens. | Chaque appui validé (un seul événement par 
@@ -29,6 +30,7 @@ niveau logique confirmé à l'essai T4 (lecture du registre IDR); la
 logique de défilement utilise le résultat déjà normalisé (« appuyé = 1 ») 
 fourni par button_raw, donc elle est indépendante du niveau électrique 
 réel du bouton. |
+
 | E3 | La lecture du bouton User doit filtrer les rebonds 
 mécaniques du contact afin qu'un seul appui physique ne génère jamais 
 plus d'un événement, et qu'un appui maintenu ne génère qu'un seul 
