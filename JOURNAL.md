@@ -85,16 +85,16 @@
 ## Tableau des essais (T1 à T10)
 | Essai | Date | Résultat observé | Verdict | Preuve (fichier) |
 |---|---|---|---|---|
-| T1 Réinitialisation | 25 septembre 2026 | etat = 0; PA9 = 1, PC7 = 0, PB7 = 0; reproduit 5 fois | Réussi | T1_reset.png |
+| T1 Réinitialisation | 25 septembre 2026 | etat = 0; PA9 = 1, PC7 = 0, PB7 = 0; reproduit 5 fois | Réussi |  |
 | T2 Cycle User | 25 septembre 2026 | etat 0 → 1 → 0 → 2 → 0; ODR conformes | Réussi | |
 | T3 Anti-rebond | 25 septembre 2026 | 0 → 20 après 20 appuis; 20 → 21 après l'appui maintenu | Réussi | |
 | T4 Niveaux logiques | 25 septembre 2026 | User actif haut; E-Stop et Touch En actifs bas, tirage haut | Réussi | |
 | T5 E-Stop | 2 octobre 2026 | ISR atteinte; verte/bleue éteintes, rouge allumée, estop_flag = 1, puis etat = 3 | Réussi |  |
 | T6 Clignotement | 2 octobre 2026 | moyenne 1 000 080 cycles = 250,02 ms (min 249,61, max 250,28), écart 0,008 % | Réussi | <img width="1896" height="467" alt="t6" src="https://github.com/user-attachments/assets/f2f06878-5600-4ce5-9ad7-c5130e166395" /> |
-| T7 Acquittement | 2 octobre 2026 | cas 1 : etat 3 → 0; cas 2 : reste 3; 10 s : etat = 3 | Réussi | |
-| T8 User ignoré en urgence | 2 octobre 2026 | etat = 3 et compteur_transitions = 21 avant et après | Réussi | |
-| T9 Touch En hors urgence | 2 octobre 2026 | touch_enabled 0 → 1 → 0; compteur inchangé; extinction visible | Réussi | |
-| T10 Robustesse | 2 octobre 2026 | 15 essais par scénario; viol_cnt = 0; etat toujours dans 0 à 3 | Réussi | |
+| T7 Acquittement | 2 octobre 2026 | cas 1 : etat 3 → 0; cas 2 : reste 3; 10 s : etat = 3 | Réussi | <img width="1917" height="1017" alt="t7 1" src="https://github.com/user-attachments/assets/e1e94dff-f45b-468d-8ff3-ac02fe44634e" /> <img width="1917" height="1017" alt="t7 2" src="https://github.com/user-attachments/assets/db06fed1-1b7a-4161-ae01-2fa48ba056dd" /> |
+| T8 User ignoré en urgence | 2 octobre 2026 | etat = 3 et compteur_transitions = 21 avant et après | Réussi | <img width="1917" height="502" alt="t81" src="https://github.com/user-attachments/assets/c0fc5f77-a372-4386-ae21-3cdb417b70a5" /> <img width="1917" height="1017" alt="t8 2" src="https://github.com/user-attachments/assets/a58cfaec-502a-4190-b4ff-dd718a736a23" />|
+| T9 Touch En hors urgence | 2 octobre 2026 | touch_enabled 0 → 1 → 0; compteur inchangé; extinction visible | Réussi | <img width="1917" height="530" alt="t9 1" src="https://github.com/user-attachments/assets/2769b6bc-1555-4a55-a8aa-67c5a9f780a5" /> <img width="1917" height="472" alt="t9 2" src="https://github.com/user-attachments/assets/d7a67762-2913-4522-b47e-8c3e61bd8dee" /> |
+| T10 Robustesse | 2 octobre 2026 | 15 essais par scénario; viol_cnt = 0; etat toujours dans 0 à 3 | Réussi | N/A |
 
 ## Routine conservée pour L3-A
 - Routine : button_pressed
