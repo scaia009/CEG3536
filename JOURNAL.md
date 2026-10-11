@@ -85,11 +85,22 @@
 ## Tableau des essais (T1 à T10)
 | Essai | Date | Résultat observé | Verdict | Preuve (fichier) |
 |---|---|---|---|---|
-| T1 Réinitialisation | 25 septembre 2026 | etat = 0; PA9 = 1, PC7 = 0, PB7 = 0; reproduit 5 fois | Réussi |  |
-| T2 Cycle User | 25 septembre 2026 | etat 0 → 1 → 0 → 2 → 0; ODR conformes | Réussi | |
-| T3 Anti-rebond | 25 septembre 2026 | 0 → 20 après 20 appuis; 20 → 21 après l'appui maintenu | Réussi | |
-| T4 Niveaux logiques | 25 septembre 2026 | User actif haut; E-Stop et Touch En actifs bas, tirage haut | Réussi | |
-| T5 E-Stop | 2 octobre 2026 | ISR atteinte; verte/bleue éteintes, rouge allumée, estop_flag = 1, puis etat = 3 | Réussi |  |
+| T1 Réinitialisation | 25 septembre 2026 | etat = 0; PA9 = 1, PC7 = 0, PB7 = 0; reproduit 5 fois | Réussi | <img width="690" height="700" alt="Capture d’écran 2026-10-02 152729" src="https://github.com/user-attachments/assets/89ef8c5f-4a5d-467c-9ea3-25d027a6523f" />
+ |
+| T2 Cycle User | 25 septembre 2026 | etat 0 → 1 → 0 → 2 → 0; ODR conformes | Réussi | <img width="858" height="700" alt="t2 (7)" src="https://github.com/user-attachments/assets/296bb36c-6dc5-4606-8d12-4cc8c6beb1e2" />
+<img width="592" height="700" alt="t2 (6)" src="https://github.com/user-attachments/assets/b5ad77e7-1cad-48cf-bfa7-157515a7190e" />
+<img width="878" height="700" alt="t2 (5)" src="https://github.com/user-attachments/assets/2951f507-c0a9-43b2-9d17-2b1afe85fe17" />
+<img width="985" height="695" alt="t2 (4)" src="https://github.com/user-attachments/assets/774ce38d-adbf-4e66-ba46-6f280e01ba12" />
+<img width="994" height="700" alt="t2 (3)" src="https://github.com/user-attachments/assets/bb579a20-3d35-4cad-9e2f-20e83b9c8215" />
+<img width="694" height="700" alt="T2 (2)" src="https://github.com/user-attachments/assets/c5acb520-ce25-494f-8884-2d2d18264aed" />
+ |
+| T3 Anti-rebond | 25 septembre 2026 | 0 → 20 après 20 appuis; 20 → 21 après l'appui maintenu | Réussi | <img width="754" height="700" alt="Capture d’écran 2026-10-02 155604" src="https://github.com/user-attachments/assets/b5969bb6-ff5f-442d-95b0-f5df9c909b12" />
+<img width="991" height="656" alt="Capture d’écran 2026-10-02 153939" src="https://github.com/user-attachments/assets/45843ca2-bf30-4d14-8751-9d64aede2aad" />
+ |
+| T4 Niveaux logiques | 25 septembre 2026 | User actif haut; E-Stop et Touch En actifs bas, tirage haut | Réussi | <img width="873" height="529" alt="Capture d’écran 2026-10-02 160409" src="https://github.com/user-attachments/assets/bbd1458e-a8b5-45a5-b273-9fac84374c4b" />
+ |
+| T5 E-Stop | 2 octobre 2026 | ISR atteinte; verte/bleue éteintes, rouge allumée, estop_flag = 1, puis etat = 3 | Réussi | <img width="596" height="472" alt="T5" src="https://github.com/user-attachments/assets/b0fd5791-9618-4bd1-ba29-259f35582a45" />
+ |
 | T6 Clignotement | 2 octobre 2026 | moyenne 1 000 080 cycles = 250,02 ms (min 249,61, max 250,28), écart 0,008 % | Réussi | <img width="1896" height="467" alt="t6" src="https://github.com/user-attachments/assets/f2f06878-5600-4ce5-9ad7-c5130e166395" /> |
 | T7 Acquittement | 2 octobre 2026 | cas 1 : etat 3 → 0; cas 2 : reste 3; 10 s : etat = 3 | Réussi | <img width="1917" height="1017" alt="t7 1" src="https://github.com/user-attachments/assets/e1e94dff-f45b-468d-8ff3-ac02fe44634e" /> <img width="1917" height="1017" alt="t7 2" src="https://github.com/user-attachments/assets/db06fed1-1b7a-4161-ae01-2fa48ba056dd" /> |
 | T8 User ignoré en urgence | 2 octobre 2026 | etat = 3 et compteur_transitions = 21 avant et après | Réussi | <img width="1917" height="502" alt="t81" src="https://github.com/user-attachments/assets/c0fc5f77-a372-4386-ae21-3cdb417b70a5" /> <img width="1917" height="1017" alt="t8 2" src="https://github.com/user-attachments/assets/a58cfaec-502a-4190-b4ff-dd718a736a23" />|
