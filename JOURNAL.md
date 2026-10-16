@@ -1,4 +1,4 @@
-# JOURNAL.md — Journal d'équipe, CEG 3536, laboratoire 2 (automne 2026)
+# JOURNAL.md — Journal d'équipe, CEG 3536, laboratoire 2 (Automne 2026)
 
 Équipe : `Simon Boisvert` et `Samuel Caiado` — Section : `A02` — Dépôt Git : `https://github.com/scaia009/CEG3536/tree/Lab-2`
 
@@ -6,15 +6,15 @@
 
 | Laboratoire | Échéancier prévu (J1) | Déroulement réel | Écart et cause | Ajustement pour les laboratoires 3 à 5 |
 |---|---|---|---|---|
-| 1 | 2 octobre 2026 | 11 octobre 2026 | De 9 jours, puisque le changement d'échéance avait été changé par l'AT | Planification d'une séance de relecture de code commune avant le laboratoire pour valider la configuration des registres et éviter les blocages au débogueur. |
+| 1 | 2 octobre 2026 | 11 octobre 2026 | De 9 jours, puisque l'échéance avait été modifiée par l'AT | Planification d'une séance de relecture de code commune avant le laboratoire pour valider la configuration des registres et éviter les blocages au débogueur. |
 | 2 | 2 novembre 2026 | <Remplir à la remise> | <Écart constaté au Lab2> | <Planifier plus/moins de temps de débogage> |
 
 ## Rôles et rotation
 
 | Séance | Réalise | Valide (essais, mesures, relecture) | Périphérique configuré ou mesuré par chacun |
 |---|---|---|---|
-| Séance 1 (13 / 16 oct.) | Simon Boisvert | Samuel Caiado | PWM (TIM1), base de temps SysTick, bips du Buzzer. |
-| Séance 2 (20 / 23 oct.) | Samuel Caiado | Simon Boisvert | Lecture et quadrature des Encodeurs, ISR E-Stop. |
+| Séance 1 (16 octobre 2026) | Simon Boisvert | Samuel Caiado | PWM (TIM1), base de temps SysTick, bips du Buzzer. |
+| Séance 2 (23 octobre 2026) | Samuel Caiado | Simon Boisvert | Lecture et quadrature des Encodeurs, ISR E-Stop. |
 
 ## Calculs préalables (avant la séance 1)
 
@@ -29,7 +29,7 @@
 
 ## Journal des séances
 
-### Séance 1 — 16 octobre 2026 — réalise : `Simon Boisvert` / valide : `Samuel Caiado`
+### Séance 1 — 16 octobre 2026 — réalisé par : `Simon Boisvert` / validé par : `Samuel Caiado`
 - **Objectifs :** Configurer TIM1 pour la PWM à 20 kHz, configurer SysTick pour une interruption de 1 ms, et gérer le buzzer.
 - **Fait :** Implémentation de `motor_init`, `motor_set_pwm`, `systick_init` et `buzzer_bip`. Cadencement de la boucle principale avec le drapeau `tick_1ms`.
 - **Décisions (sens réel de rotation pour AI1 = 1, AI2 = 0 ; `ENC_SENS_INVERSE` ; variante buzzer) :** <Indiquer si AI1=1 fait tourner le véhicule vers l'avant ou l'arrière sur votre banc. Notez si la variante PWM TIM2 a été choisie pour le buzzer.>
@@ -37,7 +37,7 @@
 - **Mesures (PWM, SysTick, bips) :** Fréquence mesurée à 20 kHz (PSC=0, ARR=199). Période SysTick validée à 1 ms (LOAD=3999). Bips d'une durée de 100 ms contrôlés par décrémentation.
 - **Validations Git (auteur, message) :** <Auteur> : "Ajout et validation de la configuration de motor.s et systick.s"
 
-### Séance 2 — <Insérer la date : 20 ou 23 oct.> — réalise : `Samuel Caiado` / valide : `Simon Boisvert`
+### Séance 2 — 23 octobre 2026 — réalisé par : `Samuel Caiado` / validé par : `Simon Boisvert`
 - **Objectifs :** Configurer EXTI0 pour lire l'encodeur, calculer la vitesse réelle sur la fenêtre de 500 ms, et étendre l'ISR de l'E-Stop.
 - **Fait :** Écriture de `encoder_init`, `EXTI0_IRQHandler` (logique A = B / A ≠ B), et mise en sécurité immédiate dans `EXTI2_IRQHandler`. Démonstration devant l'assistant.
 - **Décisions :** Le compteur `enc_count` augmente bien dans le sens avant commandé par la machine à états.
