@@ -1,20 +1,20 @@
 # JOURNAL.md — Journal d'équipe, CEG 3536, laboratoire 2 (automne 2026)
 
-Équipe : `<NomA>` et `<NomB>` — Section : `A01 / A02` — Dépôt Git : `<adresse>`
+Équipe : `Simon Boisvert` et `Samuel Caiado` — Section : `A02` — Dépôt Git : `https://github.com/scaia009/CEG3536/tree/Lab-2`
 
 ## Suivi du jalon J1
 
 | Laboratoire | Échéancier prévu (J1) | Déroulement réel | Écart et cause | Ajustement pour les laboratoires 3 à 5 |
 |---|---|---|---|---|
-| 1 | <Date de fin prévue Lab1> | <Date réelle fin Lab1> | <Écart constaté au Lab1> | <Ajustement méthodologique fait> |
+| 1 | 2 octobre 2026 | 11 octobre 2026 | De 9 jours, puisque le changement d'échéance avait été changé par l'AT | Planification d'une séance de relecture de code commune avant le laboratoire pour valider la configuration des registres et éviter les blocages au débogueur. |
 | 2 | 2 novembre 2026 | <Remplir à la remise> | <Écart constaté au Lab2> | <Planifier plus/moins de temps de débogage> |
 
 ## Rôles et rotation
 
 | Séance | Réalise | Valide (essais, mesures, relecture) | Périphérique configuré ou mesuré par chacun |
 |---|---|---|---|
-| Séance 1 (13 / 16 oct.) | <Nom Partenaire A> | <Nom Partenaire B> | PWM (TIM1), base de temps SysTick, bips du Buzzer. |
-| Séance 2 (20 / 23 oct.) | <Nom Partenaire B> | <Nom Partenaire A> | Lecture et quadrature des Encodeurs, ISR E-Stop. |
+| Séance 1 (13 / 16 oct.) | Simon Boisvert | Samuel Caiado | PWM (TIM1), base de temps SysTick, bips du Buzzer. |
+| Séance 2 (20 / 23 oct.) | Samuel Caiado | Simon Boisvert | Lecture et quadrature des Encodeurs, ISR E-Stop. |
 
 ## Calculs préalables (avant la séance 1)
 
@@ -29,7 +29,7 @@
 
 ## Journal des séances
 
-### Séance 1 — <Insérer la date : 13 ou 16 oct.> — réalise : `<nom>` / valide : `<nom>`
+### Séance 1 — 16 octobre 2026 — réalise : `Simon Boisvert` / valide : `Samuel Caiado`
 - **Objectifs :** Configurer TIM1 pour la PWM à 20 kHz, configurer SysTick pour une interruption de 1 ms, et gérer le buzzer.
 - **Fait :** Implémentation de `motor_init`, `motor_set_pwm`, `systick_init` et `buzzer_bip`. Cadencement de la boucle principale avec le drapeau `tick_1ms`.
 - **Décisions (sens réel de rotation pour AI1 = 1, AI2 = 0 ; `ENC_SENS_INVERSE` ; variante buzzer) :** <Indiquer si AI1=1 fait tourner le véhicule vers l'avant ou l'arrière sur votre banc. Notez si la variante PWM TIM2 a été choisie pour le buzzer.>
@@ -37,7 +37,7 @@
 - **Mesures (PWM, SysTick, bips) :** Fréquence mesurée à 20 kHz (PSC=0, ARR=199). Période SysTick validée à 1 ms (LOAD=3999). Bips d'une durée de 100 ms contrôlés par décrémentation.
 - **Validations Git (auteur, message) :** <Auteur> : "Ajout et validation de la configuration de motor.s et systick.s"
 
-### Séance 2 — <Insérer la date : 20 ou 23 oct.> — réalise : `<nom>` / valide : `<nom>`
+### Séance 2 — <Insérer la date : 20 ou 23 oct.> — réalise : `Samuel Caiado` / valide : `Simon Boisvert`
 - **Objectifs :** Configurer EXTI0 pour lire l'encodeur, calculer la vitesse réelle sur la fenêtre de 500 ms, et étendre l'ISR de l'E-Stop.
 - **Fait :** Écriture de `encoder_init`, `EXTI0_IRQHandler` (logique A = B / A ≠ B), et mise en sécurité immédiate dans `EXTI2_IRQHandler`. Démonstration devant l'assistant.
 - **Décisions :** Le compteur `enc_count` augmente bien dans le sens avant commandé par la machine à états.
@@ -49,30 +49,30 @@
 
 | Mesure | Exigence | Valeur mesurée | Incertitude / méthode | Écart | Cause | Preuve (fichier) |
 |---|---|---|---|---|---|---|
-| Fréquence PWM | 20 kHz ± 5 % | <Ex: 20,0 kHz> | Débogueur (Vue SFR : PSC, ARR) | <0 %> | N/A | `preuves/sfr_tim1.png` |
-| Rapport cyclique à 25 / 50 / 75 / 100 % | ± 2 points | <Ex: 25%, 50%, 75%, 100%> | Débogueur (Vue SFR : CCR1) | <0 %> | N/A | `preuves/sfr_ccr1.png` |
-| Rampe 0 → 100 % | 1 s ± 10 % | <Ex: 1010 ms> | Point d'arrêt / écart `ticks_ms` | <+1 %> | Résolution SysTick | `preuves/rampe.txt` |
-| Période SysTick | 1 ms ± 1 % | <Ex: 1,00 ms> | Chronomètre sur 10 secondes | <0 %> | Oscillateur MSI stable | `preuves/systick.txt` |
-| Vitesse à 25 / 50 / 75 / 100 % (avant) | croissante, stable ± 10 % | <Ex: 530, 1080, 1620, 2170 fronts> | Live Expressions (`vitesse_fronts`) | <X %> | Frottements / Charge vide | `preuves/vitesse_av.png` |
-| Vitesse à 25 / 50 / 75 / 100 % (arrière) | idem | <Insérer fronts arrière> | Live Expressions (`vitesse_fronts`) | <X %> | Frottements mécaniques | `preuves/vitesse_ar.png` |
-| Déphasage E_A / E_B (avant, arrière) | quadrature, inversé selon le sens | Validé | Lecture IDR dans l'ISR de l'encodeur | N/A | Comportement physique | `preuves/quadrature.png` |
-| Délai E-Stop → PWM nulle | < 1 ms | < 1 ms (estimé) | Latence d'interruption + instructions | <0,1 ms | Traitement direct dans l'ISR | `preuves/estop_isr.png` |
-| Durée d'un bip | 100 ms ± 10 % | <Ex: 100 ms> | Débogueur / Lecture `ticks_ms` | <0 %> | Cadencé par SysTick | `preuves/buzzer.png` |
+| Fréquence PWM | 20 kHz ± 5 % | <Ex: 20,0 kHz> | Débogueur (Vue SFR : PSC, ARR) | <0 %> | N/A | `<preuves/sfr_tim1.png>` |
+| Rapport cyclique à 25 / 50 / 75 / 100 % | ± 2 points | <Ex: 25%, 50%, 75%, 100%> | Débogueur (Vue SFR : CCR1) | <0 %> | N/A | `<preuves/sfr_ccr1.png>` |
+| Rampe 0 → 100 % | 1 s ± 10 % | <Ex: 1010 ms> | Point d'arrêt / écart `ticks_ms` | <+1 %> | Résolution SysTick | `<preuves/rampe.txt>` |
+| Période SysTick | 1 ms ± 1 % | <Ex: 1,00 ms> | Chronomètre sur 10 secondes | <0 %> | Oscillateur MSI stable | `<preuves/systick.txt>` |
+| Vitesse à 25 / 50 / 75 / 100 % (avant) | croissante, stable ± 10 % | <Ex: 530, 1080, 1620, 2170 fronts> | Live Expressions (`<vitesse_fronts>`) | <X %> | Frottements / Charge vide | `<preuves/vitesse_av.png>` |
+| Vitesse à 25 / 50 / 75 / 100 % (arrière) | idem | <Insérer fronts arrière> | Live Expressions (`vitesse_fronts`) | <X %> | Frottements mécaniques | `<preuves/vitesse_ar.png>` |
+| Déphasage E_A / E_B (avant, arrière) | quadrature, inversé selon le sens | Validé | Lecture IDR dans l'ISR de l'encodeur | N/A | Comportement physique | `<preuves/quadrature.png>` |
+| Délai E-Stop → PWM nulle | < 1 ms | < 1 ms (estimé) | Latence d'interruption + instructions | <0,1 ms | Traitement direct dans l'ISR | `<preuves/estop_isr.png>` |
+| Durée d'un bip | 100 ms ± 10 % | <Ex: 100 ms> | Débogueur / Lecture `ticks_ms` | <0 %> | Cadencé par SysTick | `<preuves/buzzer.png>` |
 
 ## Tableau des essais (T1 à T10)
 
 | Essai | Date | Résultat observé | Verdict | Preuve (fichier) |
 |---|---|---|---|---|
-| T1 Réinitialisation | <Date> | Rouge fixe, moteur immobile, CCR1=0, STB=0. | Conforme | `preuves/t1_reset.png` |
-| T2 Cycle User et sens | <Date> | Séquence R -> V -> R -> B -> R respectée. Niveaux ODR conformes. | Conforme | `preuves/t2_fsm.png` |
-| T3 PWM | <Date> | Fréquence à 20 kHz, pas de CCR1 > ARR+1. | Conforme | `preuves/t3_pwm.png` |
-| T4 Rampe | <Date> | Transition fluide, 1 point par 10 ms respecté. | Conforme | `preuves/t4_rampe.png` |
-| T5 Encodeur | <Date> | `enc_count` croît en AV, décroît en AR. Pas de perte. | Conforme | `preuves/t5_encoder.png` |
-| T6 Vitesse | <Date> | `vitesse_fronts` stable et cohérente avec la consigne. | Conforme | `preuves/t6_vitesse.png` |
-| T7 E-Stop | <Date> | Arrêt immédiat de la PWM et mise en veille du pont en H. | Conforme | `preuves/t7_estop.png` |
-| T8 Urgence et acquittement | <Date> | Clignotement rouge 2Hz, acquittement bloqué si E-Stop maintenu. | Conforme | `preuves/t8_urgence.png` |
-| T9 Buzzer | <Date> | Bips nets de 100 ms, double bip en marche arrière. | Conforme | `preuves/t9_buzzer.png` |
-| T10 SysTick et robustesse | <Date> | Système stable lors d'appuis simultanés ou préemption. | Conforme | `preuves/t10_robust.png` |
+| T1 Réinitialisation | <Date> | Rouge fixe, moteur immobile, CCR1=0, STB=0. | Conforme | `<preuves/t1_reset.png>` |
+| T2 Cycle User et sens | <Date> | Séquence R -> V -> R -> B -> R respectée. Niveaux ODR conformes. | Conforme | `<preuves/t2_fsm.png>` |
+| T3 PWM | <Date> | Fréquence à 20 kHz, pas de CCR1 > ARR+1. | Conforme | `<preuves/t3_pwm.png>` |
+| T4 Rampe | <Date> | Transition fluide, 1 point par 10 ms respecté. | Conforme | `<preuves/t4_rampe.png>` |
+| T5 Encodeur | <Date> | `enc_count` croît en AV, décroît en AR. Pas de perte. | Conforme | `<preuves/t5_encoder.png>` |
+| T6 Vitesse | <Date> | `vitesse_fronts` stable et cohérente avec la consigne. | Conforme | `<preuves/t6_vitesse.png>` |
+| T7 E-Stop | <Date> | Arrêt immédiat de la PWM et mise en veille du pont en H. | Conforme | `<preuves/t7_estop.png>` |
+| T8 Urgence et acquittement | <Date> | Clignotement rouge 2Hz, acquittement bloqué si E-Stop maintenu. | Conforme | `<preuves/t8_urgence.png>` |
+| T9 Buzzer | <Date> | Bips nets de 100 ms, double bip en marche arrière. | Conforme | `<preuves/t9_buzzer.png>` |
+| T10 SysTick et robustesse | <Date> | Système stable lors d'appuis simultanés ou préemption. | Conforme | `<preuves/t10_robust.png>` |
 
 ## Routine conservée pour L3-A
 - **Routine (`button_pressed`, `led_set`, `motor_set_pwm` ou `encoder_read`) :** `motor_set_pwm` (ou celle de votre choix parmi la liste)
