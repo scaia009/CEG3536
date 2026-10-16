@@ -1,6 +1,6 @@
 # JOURNAL.md — Journal d'équipe, CEG 3536, laboratoire 2 (Automne 2026)
 
-Équipe : `Simon Boisvert` et `Samuel Caiado` — Section : `A02` — Dépôt Git : `https://github.com/scaia009/CEG3536/tree/Lab-2`
+Équipe : `Simon Boisvert` et `Samuel Caiado` — Section : `A01` — Dépôt Git : `https://github.com/scaia009/CEG3536/tree/Lab-2`
 
 ## Suivi du jalon J1
 
