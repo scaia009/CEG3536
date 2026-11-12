@@ -62,7 +62,7 @@ Analyse interne / externe (plage, résolution, bruit) :
 - Mesures : Fenêtre de vitesse de 250 ms; télémétrie prévue à 5 Hz (période 200 ms); rampe PWM d'un point toutes les 10 ms.
 - Validations Git :
 
-### Période d'étude — travail sur hôte
+### Période d'étude — Travail sur hôte
 - Fait : `evq.c` implémente la file circulaire de 32 événements; `acq.c` contient les versions 1 et 2 de l'objet d'acquisition; `adc_dma.c` configure ADC1 et DMA circulaire; `telem.c` configure LPUART1 et les trames; `vitesse.s` réalise la conversion de vitesse en Q16.16; l3a_c.c contient la version C de `motor_set_pwm`.
 - Validation hôte présente dans l'archive : `make` dans `hote/` compile avec `-Wall -Wextra` et exécute les neuf cas; résultat vérifié ici : 9 réussis, 0 échec.
 - Validations Git :
