@@ -92,9 +92,9 @@ Routine comparée : `<motor_set_pwm | button_pressed | led_set | encoder_read>`
 
 | Version | Cycles DWT (moyenne) | Taille (octets) | Registres utilisés | Observations (prologue, volatile) |
 |---|---|---|---|---|
-| Assembleur |  |  | r0 entrée/retour; r1 calcul; r2 adresse de TIM1 | Routine feuille; pas de prologue/épilogue de pile; écrit directement `TIM1->CCR1`#2. |
-| C, -O0 |  |  |  | Variable d'accès au registre matériel via `TIM1->CCR1`; code généré dépendant du compilateur et de l'optimisation. |
-| C, -O2 |  |  |  | Comparer les optimisations, les registres et les éventuels prologue/épilogue avec `-O0`. |
+| Assembleur | 31 |  | r0 entrée/retour; r1 calcul; r2 adresse de TIM1 | Routine feuille; pas de prologue/épilogue de pile; écrit directement `TIM1->CCR1`#2. |
+| C, -O0 | 59 |  |  | Variable d'accès au registre matériel via `TIM1->CCR1`; code généré dépendant du compilateur et de l'optimisation. |
+| C, -O2 | 25 |  |  | Comparer les optimisations, les registres et les éventuels prologue/épilogue avec `-O0`. |
 
 ## Composante L3-C : objet d'acquisition
 
