@@ -24,11 +24,11 @@ Différences observées entre hôtes (tailles des types, options, avertissements
 
 ## Rôles et rotation
 
-| Séance | Réalise | Valide | Module C écrit par chacun | Routine assembleur écrite ou modifiée par chacun |
-|---|---|---|---|---|
-| Séance 1 | Simon Boisvert | Samuel Caiado | `main.c`, `fsm.c` Simon Boisvert |  |
-| Période d'étude | Samuel Caiado | Simon Boisvert | `evq.c`, `acq.c`, `adc_dma.c`, `telem.c`, `l3a_c.c` Samuel Caiado |  |
-| Séance 2 | Samuel Caiado | Simon Boisvert | Simon Boisvert |  |
+| Séance | Réalise | Valide | Module C écrit par chacun |
+|---|---|---|---|
+| Séance 1 | Simon Boisvert | Samuel Caiado | `main.c`, `fsm.c` Simon Boisvert |
+| Période d'étude | Samuel Caiado | Simon Boisvert | `evq.c`, `acq.c`, `adc_dma.c`, `telem.c`, `l3a_c.c` Samuel Caiado |
+| Séance 2 | Samuel Caiado | Simon Boisvert | Simon Boisvert |
 
 ## Calculs préalables
 
