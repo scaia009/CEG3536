@@ -108,26 +108,53 @@ Routine comparée : `<motor_set_pwm | button_pressed | led_set | encoder_read>`
 
 | Élément | Preuve (fichier) |
 |---|---|
-| Désassemblage -O0 annoté | |
-| Désassemblage -O2 annoté | |
-| Trois instructions et leur encodage Thumb | |
-| Captures du débogueur (R0–R3, SP, variable volatile) | |
-| Cycles DWT -O0 / -O2 et transformation analysée | |
+| Désassemblage -O0 annoté | <img width="356" height="169" alt="t10 1" src="https://github.com/user-attachments/assets/f33af80f-0124-45d6-a76c-b332f05cb111" />
+ |
+| Désassemblage -O2 annoté | <img width="282" height="217" alt="t10 2" src="https://github.com/user-attachments/assets/402d1d8f-f64e-4553-a8cd-24c281b3ad85" />
+ |
+| Cycles DWT -O0 / -O2 et transformation analysée |  |
 
 ## Tableau des essais (T1 à T10)
 
 | Essai | Date | Résultat observé | Verdict | Preuve (fichier) |
 |---|---|---|---|---|
-| T1 Initialisation en C | 13-11-2026 | Initialisation des modules C et assembleur; état initial `ETAT_ARRET`, PWM à 0 selon `main.c` et `fsm_init()`; équipe rapporte aucun problème. | Réussi |  |
-| T2 Appel C → assembleur | 13-11-2026 | Le programme C appelle les routines assembleur conservées (boutons, encodeur, moteur, DEL, buzzer, SysTick); équipe rapporte aucun problème. | Réussi |  |
-| T3 Virgule fixe | 13-11-2026 | Conversion de fronts en tr/min Q16.16 avec k = 21028; cas documentés dans le commentaire de `vitesse.s` : 0, 1, 748, 1870 et 65 535 fronts. | Réussi |  |
-| T4 ADC et DMA | 13-11-2026 | ADC1 en 12 bits, deux voies PC0/PC1, DMA circulaire; 64 échantillons par voie dans le tampon. | Réussi |  |
-| T5 Consigne | 13-11-2026 | Potentiomètre converti en consigne 0–100 %; zone morte 3 % et hystérésis 2 points; rampe PWM d'un point par 10 ms. | Réussi |  |
-| T6 Température | 13-11-2026 | Mesure de la voie température et conversion en dixièmes de °C à partir de la pente LMT86; constantes nominales du ZIP : 1831 mV à 25,0 °C. | Réussi |  |
+| T1 Initialisation en C | 13-11-2026 | Initialisation des modules C et assembleur; état initial `ETAT_ARRET`, PWM à 0 selon `main.c` et `fsm_init()`; équipe rapporte aucun problème. | Réussi | <img width="286" height="101" alt="T1 5" src="https://github.com/user-attachments/assets/9b5f6330-e565-4d10-a792-edddc6275bcd" />
+<img width="220" height="145" alt="T1 4" src="https://github.com/user-attachments/assets/ec831114-b148-4441-b9d3-c57fc3c6f150" />
+<img width="640" height="392" alt="T1 3" src="https://github.com/user-attachments/assets/4a586384-dd5f-4a14-95d8-0758851cc641" />
+<img width="692" height="269" alt="T1 2" src="https://github.com/user-attachments/assets/51f61adf-a3ba-4f90-9ba7-9ba09cd4a1c5" />
+<img width="404" height="74" alt="T1 1" src="https://github.com/user-attachments/assets/760a2235-60d8-4fa2-9cf8-1abe256c9b34" />
+<img width="613" height="134" alt="T1" src="https://github.com/user-attachments/assets/9fbd083c-e34e-401e-9a05-68154f46ba06" />
+ |
+| T2 Appel C → assembleur | 13-11-2026 | Le programme C appelle les routines assembleur conservées (boutons, encodeur, moteur, DEL, buzzer, SysTick); équipe rapporte aucun problème. | Réussi | <img width="392" height="137" alt="T2 4" src="https://github.com/user-attachments/assets/431df6b9-6b5c-4945-bc1e-5e586bfbd5c9" />
+<img width="365" height="186" alt="T2 3" src="https://github.com/user-attachments/assets/fb617a23-e5f1-4803-9a70-ed2bd493f1d5" />
+<img width="464" height="162" alt="T2 3 1" src="https://github.com/user-attachments/assets/650e6f96-c7cb-4b47-8164-d183006bd900" />
+<img width="311" height="182" alt="T2 2" src="https://github.com/user-attachments/assets/3f00b98f-6b8f-4eab-8913-ebe24bb6d093" />
+<img width="467" height="186" alt="T2 1" src="https://github.com/user-attachments/assets/f4ecbc2c-18aa-4d67-949d-3203fc7e283f" />
+ |
+| T3 Virgule fixe | 13-11-2026 | Conversion de fronts en tr/min Q16.16 avec k = 21028; cas documentés dans le commentaire de `vitesse.s` : 0, 1, 748, 1870 et 65 535 fronts. | Réussi | Tableau |
+| T4 ADC et DMA | 13-11-2026 | ADC1 en 12 bits, deux voies PC0/PC1, DMA circulaire; 64 échantillons par voie dans le tampon. | Réussi | <img width="248" height="219" alt="T4 1" src="https://github.com/user-attachments/assets/ad39d975-00ca-43a5-9034-f37816dd3623" />
+<img width="472" height="436" alt="T4 2 pot moy" src="https://github.com/user-attachments/assets/7e0dcbc0-7238-4023-9834-c87f905ce65f" />
+<img width="461" height="446" alt="t4 2 pot full" src="https://github.com/user-attachments/assets/c327c45f-4ece-44b1-a4c3-6f5193f8b49d" />
+<img width="751" height="305" alt="T4 2 pot bas" src="https://github.com/user-attachments/assets/e1e86a64-6200-45dc-bcb9-a570b7a96fc7" />
+<img width="464" height="432" alt="t4 2 1 pot bas" src="https://github.com/user-attachments/assets/8f90ee7f-e27f-4468-aa27-5944def46314" />
+<img width="453" height="272" alt="T4 1 pot moy" src="https://github.com/user-attachments/assets/1cd8710f-e392-4322-8228-5feca7695286" />
+<img width="316" height="179" alt="t4 1 pot full" src="https://github.com/user-attachments/assets/ae35bc28-cbc9-4f4b-9b27-4c59f48411bc" />
+ |
+| T5 Consigne | 13-11-2026 | Potentiomètre converti en consigne 0–100 %; zone morte 3 % et hystérésis 2 points; rampe PWM d'un point par 10 ms. | Réussi | <img width="461" height="62" alt="T5 2" src="https://github.com/user-attachments/assets/c935fa8a-aea0-4f87-836b-b449c4b9270e" />
+<img width="541" height="196" alt="T5 1" src="https://github.com/user-attachments/assets/eb9d04c6-e326-475e-b8b8-c5da805c2066" />
+ |
+| T6 Température | 13-11-2026 | Mesure de la voie température et conversion en dixièmes de °C à partir de la pente LMT86; constantes nominales du ZIP : 1831 mV à 25,0 °C. | Réussi | <img width="231" height="372" alt="t6 2" src="https://github.com/user-attachments/assets/0be1de2c-1d89-4f66-8b6e-0ba790ef288b" />
+<img width="217" height="104" alt="t6 1 (2)" src="https://github.com/user-attachments/assets/97fca07d-f8d0-425b-8ebc-df030055d1ef" />
+ |
 | T7 File d'événements | 13-11-2026 | File circulaire de 32 éléments; neuf cas d'autotest présents et réussis sur hôte lors de la vérification du ZIP. | Réussi |  |
-| T8 E-Stop | 13-11-2026 | Le code traite `EV_ESTOP`, coupe le moteur, passe à `ETAT_ARRET_URGENCE`; acquittement par Touch lorsque l'`E-Stop` est relâché. | Réussi |  |
-| T9 Télémétrie | 13-11-2026 | LPUART1 configuré à 115 200 bauds; en-tête `H,...` et trames `T,...`; émission non bloquante par file logicielle. | Réussi |  |
-| T10 Comparaison et traces | 13-11-2026 | Banc L3-A compare `motor_set_pwm` et `motor_set_pwm_c` sur huit entrées et mesure les cycles DWT. | Réussi |  |
+| T8 E-Stop | 13-11-2026 | Le code traite `EV_ESTOP`, coupe le moteur, passe à `ETAT_ARRET_URGENCE`; acquittement par Touch lorsque l'`E-Stop` est relâché. | Réussi | <img width="561" height="218" alt="t8 1" src="https://github.com/user-attachments/assets/9a0b9fe7-b71d-468a-8ba3-63e416b0bcca" />
+<img width="581" height="169" alt="t8 2" src="https://github.com/user-attachments/assets/ff055a4a-96b0-4848-99a4-6d6aad33559b" />
+ |
+| T9 Télémétrie | 13-11-2026 | LPUART1 configuré à 115 200 bauds; en-tête `H,...` et trames `T,...`; émission non bloquante par file logicielle. | Réussi | <img width="1880" height="560" alt="T9" src="https://github.com/user-attachments/assets/d721d5ae-39af-4d24-976d-3747f838d1fe" />
+ |
+| T10 Comparaison et traces | 13-11-2026 | Banc L3-A compare `motor_set_pwm` et `motor_set_pwm_c` sur huit entrées et mesure les cycles DWT. | Réussi | <img width="282" height="217" alt="t10 2" src="https://github.com/user-attachments/assets/7e0c57c6-3c7a-47b2-bd1c-c0ed841c28f1" />
+<img width="356" height="169" alt="t10 1" src="https://github.com/user-attachments/assets/f09d73e1-3466-491b-8eae-ff17b535872c" />
+ |
 
 ## Déclaration des sources et de l'usage d'outils d'IA générative
 - Sources (complément, corrigé du laboratoire 2 le cas échéant, CMSIS, manuel) : Complément de démarrage du laboratoire 3 fourni avec le projet (`LISEZMOI.md`, `LISEZMOI_COMPLETION.md`, en-têtes et sources `CMSIS` inclus); fichiers des laboratoires 1 et 2 repris dans `Src/` et `Inc/`; manuel et énoncé du laboratoire 3 à citer avec leur titre/version exacts par l'équipe; documentation `CMSIS/ST` utilisée dans le projet. Le corrigé du laboratoire 2 doit être ajouté à la liste uniquement s'il a réellement été consulté.
