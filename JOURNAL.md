@@ -5,9 +5,9 @@
 
 | Plateforme | Compilateur et version | Commande | Résultat (cas réussis / échecs) | Date et validation Git |
 |---|---|---|---|---|
-| Windows | Windows 11 26H2 | `make` dans `hote/` | 9 cas réussis, 0 échec | 13-11-2026 |
-| Linux | GCC 14.2.0 | `make` dans `hote/` | 9 cas réussis, 0 échec | 13-11-2026 |
-| STM32 (cible) | arm-none-eabi-gcc | commande série `q` | 9 cas réussis, 0 échec | 13-11-2026 |
+| Windows | Windows 11 26H2 | `make` dans `hote/` | 10 cas réussis, 0 échec | 13-11-2026 |
+| Linux | GCC 14.2.0 | `make` dans `hote/` | 10 cas réussis, 0 échec | 13-11-2026 |
+| STM32 (cible) | arm-none-eabi-gcc | commande série `q` | 10 cas réussis, 0 échec | 13-11-2026 |
 
 Cas ajoutés par l'équipe (au-delà des 9 fournis) :
 
