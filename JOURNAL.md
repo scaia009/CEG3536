@@ -5,9 +5,9 @@
 
 | Plateforme | Compilateur et version | Commande | Résultat (cas réussis / échecs) | Date et validation Git |
 |---|---|---|---|---|
-| Windows | GCC `[À RELEVER]` (MSYS2 UCRT64, Windows 11) | `make` dans `hote/` | 10 cas réussis, 0 échec | 13-11-2026 — commit `[hash]` |
-| Linux | GCC 14.2.0 | `make` dans `hote/` | 10 cas réussis, 0 échec | 13-11-2026 — commit `[hash]` |
-| STM32 (cible) | arm-none-eabi-gcc `[À RELEVER]` (STM32CubeIDE, -O0) | commande série `q` | `Q,echecs=0` : 10 cas réussis, 0 échec | 13-11-2026 — commit `[hash]` |
+| Windows | GCC `[VERSION]` (MSYS2 UCRT64, Windows 11) | `make` dans `hote/` | 10 cas réussis, 0 échec | 13-11-2026 — commit `[HASH]` |
+| Linux | GCC 14.2.0 | `make` dans `hote/` | 10 cas réussis, 0 échec | 13-11-2026 — commit `[HASH]` |
+| STM32 (cible) | arm-none-eabi-gcc (GCC de STM32CubeIDE 2.2.0, `[VERSION]`), -O0 | commande série `q` | `Q,echecs=0` : 10 cas réussis, 0 échec | 13-11-2026 — commit `[HASH]` |
 
 Différences observées entre hôtes (tailles des types, options, avertissements) :
 - Le même `evq.c` et le même `test_evq.c` sont compilés sur Windows et sur Linux, sans aucune modification du source.
@@ -61,8 +61,8 @@ Relation : `t10 = TEMP_C10_REF − (mv − TEMP_MV_REF) × 10 000 / 10 900`, en 
 | Mesure | Température de référence (°C) | `temp_mv` lu | `TEMP_MV_REF` / `TEMP_C10_REF` retenus | Position de S2 |
 |---|---|---|---|---|
 | Ambiante | 25,0 (point de référence nominal) | ≈ 1831 (raw ≈ 2272) | 1831 / 250 (valeurs nominales du complément) | INT |
-| Capteur tenu entre deux doigts (30 s) | hausse de plusieurs °C | `[À RELEVER]` | inchangés | INT |
-| Conditionnement externe (pont OUT–IN) | même qu'au repos ± 1 °C | `[À RELEVER]` | inchangés | EXT |
+| Capteur tenu entre deux doigts (30 s) | hausse de plusieurs °C | 2851 | inchangés | INT |
+| Conditionnement externe (pont OUT–IN) | même qu'au repos ± 1 °C | 1815 | inchangés | EXT |
 
 Critères vérifiés : écart ≤ 2 °C au repos avec le thermomètre de référence; hausse de plusieurs degrés avec les doigts (le compte brut diminue d'environ 13,5 comptes par °C, car la pente est négative); même lecture à ± 1 °C avec le pont. Sans pont, S2 sur EXT, l'entrée flotte (≈ 800 mV, soit ≈ 119 °C) : lecture non valide.
 
@@ -113,9 +113,9 @@ Les cas incluent les bornes 0 et 100 ainsi que 0xFFFFFFFF (saturation à 100 %, 
 
 | Version | Cycles DWT (moyenne) | Taille (octets) | Registres utilisés | Observations (prologue, volatile) |
 |---|---|---|---|---|
-| Assembleur | 31 (7,75 µs) | `[À RELEVER]` | r0 entrée/retour; r1 calcul; r2 adresse de TIM1 | Routine feuille; pas de prologue/épilogue; écrit directement `TIM1->CCR1`. |
-| C, -O0 | 59 (14,75 µs) | `[À RELEVER]` | r0 à r3, r7 (pointeur de cadre) | Paramètre et variables locales copiés sur la pile (`str`/`ldr` avec SP), prologue et épilogue complets; accès volatile à `CCR1`. Environ 1,9 fois plus lent que l'assembleur. |
-| C, -O2 | 25 (6,25 µs) | `[À RELEVER]` | r0 à r2 | Valeurs en registres, aucun accès à la pile, pas de prologue; accès volatile à `CCR1` conservé. Environ 0,81 fois le temps de l'assembleur. |
+| Assembleur | 31 (7,75 µs) | 26 | r0 entrée/retour; r1 calcul; r2 adresse de TIM1 | Routine feuille; pas de prologue/épilogue; écrit directement `TIM1->CCR1`. |
+| C, -O0 | 59 (14,75 µs) | 51 | r0 à r3, r7 (pointeur de cadre) | Paramètre et variables locales copiés sur la pile (`str`/`ldr` avec SP), prologue et épilogue complets; accès volatile à `CCR1`. Environ 1,9 fois plus lent que l'assembleur. |
+| C, -O2 | 25 (6,25 µs) | 19 | r0 à r2 | Valeurs en registres, aucun accès à la pile, pas de prologue; accès volatile à `CCR1` conservé. Environ 0,81 fois le temps de l'assembleur. |
 
 Taille : `arm-none-eabi-nm --size-sort -S fichier.elf`, taille en hexadécimal convertie en octets, à -O0 puis à -O2.
 
