@@ -1,6 +1,6 @@
 # JOURNAL.md — Journal d'équipe, CEG 3536, projet final (automne 2026)
 
-Équipe : `<NomA>` et `<NomB>` — Section : `A01 / A02` — Dépôt Git : `<adresse>`
+Équipe : `Simon Boisvert` et `Samuel Caiado` — Section : `A02` — Dépôt Git : `https://github.com/scaia009/CEG3536/tree/Projet`
 — Variante L4-A attribuée : `<0 à 3>` — Journal du laboratoire 3 : `JOURNAL_Lab3.md`
 
 # Partie I
@@ -9,71 +9,71 @@
 
 | Séance | Réalise | Valide | Pilote I²C écrit par chacun | Pilote SPI ou routine assembleur de chacun |
 |---|---|---|---|---|
-| Séance 1 | | | | |
-| Entre les séances | | | | |
-| Séance 2 | | | | |
+| Séance 1 |  |  |  |  |
+| Entre les séances |  |  |  |  |
+| Séance 2 |  |  |  |  |
 
 ## Partie I — Calculs préalables
 
 | Grandeur | Formule | Valeur | Vérifiée par |
 |---|---|---|---|
-| Pas de l'horloge I²C | (PRESC + 1) / 4 MHz | | T1 |
-| SCL bas / SCL haut | (SCLL + 1) × pas / (SCLH + 1) × pas | | T1 |
-| Fréquence SCL (avec les délais de synchronisation) | | | T1 |
-| `TIMINGR` retenu | | | T1 |
-| Durée d'une écriture de deux octets de données | 27 bits / fréquence SCL | | T1 (DWT) |
-| Débit SPI | PCLK2 / 2^(BR + 1) | | T7 |
-| Pire cas de réécriture du LCD | 32 caractères × (position + caractère) × 1 tick | | T3 |
-| Transactions I²C par seconde au repos | | | T10 |
+| Pas de l'horloge I²C | (PRESC + 1) / 4 MHz |  | T1 |
+| SCL bas / SCL haut | (SCLL + 1) × pas / (SCLH + 1) × pas |  | T1 |
+| Fréquence SCL (avec les délais de synchronisation) |  |  | T1 |
+| `TIMINGR` retenu |  |  | T1 |
+| Durée d'une écriture de deux octets de données | 27 bits / fréquence SCL |  | T1 (DWT) |
+| Débit SPI | PCLK2 / 2^(BR + 1) |  | T7 |
+| Pire cas de réécriture du LCD | 32 caractères × (position + caractère) × 1 tick |  | T3 |
+| Transactions I²C par seconde au repos |  |  | T10 |
 
 ## Partie I — Relevés des modules
 
 | Module | Relevé | Valeur | Preuve (fichier) |
 |---|---|---|---|
-| Bus I²C | Adresses trouvées par `i2c_scan` | | |
-| Bus I²C | `GPIOF->IDR` bits 0 et 1 au repos ; `I2C2->ISR` après une transaction | | |
-| Extenseur des DEL | Octet écrit pour allumer Y1 seule ; R4 seule | | |
-| Extenseur des commutateurs | Octet lu au repos ; SW1 enfoncé ; SW8 enfoncé | | |
-| LCD | Octets de commande confirmés (fonction, allumage, effacement, mode) | | |
-| Rétroéclairage | Registres rouge / vert / bleu confirmés | | |
-| TouchPad | Front actif de THI ; `0x5E` relu après `tp_init` ; deux seuils relus | | |
-| Capteur environnemental | Identifiant lu ; page utilisée pour chaque registre | | |
-| Capteur environnemental | Température / humidité / pression au repos ; écart avec le capteur analogique | | |
-| PIR | Durée du niveau haut ; `pir_t_ms` de deux fronts successifs | | |
+| Bus I²C | Adresses trouvées par `i2c_scan` |  |  |
+| Bus I²C | `GPIOF->IDR` bits 0 et 1 au repos ; `I2C2->ISR` après une transaction |  |  |
+| Extenseur des DEL | Octet écrit pour allumer Y1 seule ; R4 seule |  |  |
+| Extenseur des commutateurs | Octet lu au repos ; SW1 enfoncé ; SW8 enfoncé |  |  |
+| LCD | Octets de commande confirmés (fonction, allumage, effacement, mode) |  |  |
+| Rétroéclairage | Registres rouge / vert / bleu confirmés |  |  |
+| TouchPad | Front actif de THI ; `0x5E` relu après `tp_init` ; deux seuils relus |  |  |
+| Capteur environnemental | Identifiant lu ; page utilisée pour chaque registre |  |  |
+| Capteur environnemental | Température / humidité / pression au repos ; écart avec le capteur analogique |  |  |
+| PIR | Durée du niveau haut ; `pir_t_ms` de deux fronts successifs |  |  |
 
 Table des touches (électrode → touche), relevée au débogueur :
 
 | Électrode | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|
-| Touche | | | | | | | | | | | | |
+| Touche |  |  |  |  |  |  |  |  |  |  |  |  |
 
 ## Partie I — Essais hôte (E11)
 
 | Plateforme | Compilateur et version | `test_evq` (réussis / échecs) | `test_tableau` (réussis / échecs) | Date et validation Git |
 |---|---|---|---|---|
-| Windows | | | | |
-| Linux | | | | |
-| STM32 (cible) | arm-none-eabi-gcc | commande `q` : | commande `f` : | |
+| Windows |  |  |  |  |
+| Linux |  |  |  |  |
+| STM32 (cible) | arm-none-eabi-gcc | commande `q` : | commande `f` : |  |
 
 Cas ajoutés à `tableau_test.c` (au-delà des 6 fournis) :
 
 | Cas | Description | Résultat |
 |---|---|---|
-| 7 | | |
+| 7 |  |   |
 
 ## Partie I — Banc de `trame_xor8` (T9)
 
 | Cas | Attendu | Obtenu | Verdict |
 |---|---|---|---|
-| Chaîne vide | 0x00 | | |
-| « A » | 0x41 | | |
-| « T,0 » | 0x48 | | |
-| « 123456789 » | 0x31 | | |
-| Octets 0x00 à 0xFF | 0x00 | | |
+| Chaîne vide | 0x00 |  |  |
+| « A » | 0x41 |  |  |
+| « T,0 » | 0x48 |  |  |
+| « 123456789 » | 0x31 |  |  |
+| Octets 0x00 à 0xFF | 0x00 |  |  |
 
 ## Partie I — Journal des séances
 
-### Séance 1 — `<date>` — réalise : `<nom>` / valide : `<nom>`
+### Séance 1 — `20 novembre 2026` — réalise : `Simon Boisvert` / valide : `Samuel Caiado`
 - Objectifs :
 - Fait :
 - Décisions (découpage, répartition du bus, format des lignes) :
@@ -85,7 +85,7 @@ Cas ajoutés à `tableau_test.c` (au-delà des 6 fournis) :
 - Fait (tableau.c, test_tableau, fsm.c, lecture de l4a_defaut.c) :
 - Validations Git :
 
-### Séance 2 — `<date>` — réalise : `<nom>` / valide : `<nom>`
+### Séance 2 — `27 novembre 2026` — réalise : `Samuel Caiado` / valide : `Simon Boisvert`
 - Objectifs :
 - Fait :
 - Décisions :
@@ -103,15 +103,15 @@ Variante : `<n>` — validation Git de la version défectueuse : — de la versi
 
 | Rang | Hypothèse | Niveau (lignes et broches / adressage et protocole / configuration du composant / interruption et garde) | Ce qu'on observerait si elle était vraie |
 |---|---|---|---|
-| 1 | | | |
-| 2 | | | |
-| 3 | | | |
+| 1 |  |  |  |
+| 2 |  |  |  |
+| 3 |  |  |  |
 
 3. Mesures :
 
 | Hypothèse visée | Mesure (registre, balayage, relecture, compteur) | Résultat | Preuve (fichier) |
 |---|---|---|---|
-| | | | |
+|  |  |  |  |
 
 4. Essai discriminant — prédiction écrite **avant** l'essai (date et heure) :
 
@@ -139,16 +139,16 @@ Priorités des interruptions (valeur, justification) : E-Stop — encodeur — S
 
 | Essai | Date | Résultat observé | Verdict | Preuve (fichier) |
 |---|---|---|---|---|
-| T1 Bus I²C et balayage | | | | |
-| T2 Extenseurs | | | | |
-| T3 LCD et rétroéclairage | | | | |
-| T4 TouchPad et garde | | | | |
-| T5 Commandes du TouchPad | | | | |
-| T6 PIR | | | | |
-| T7 Capteur environnemental | | | | |
-| T8 Événements et priorités | | | | |
-| T9 Télémétrie contrôlée | | | | |
-| T10 Robustesse et non-régression | | | | |
+| T1 Bus I²C et balayage |  |  |  |  |
+| T2 Extenseurs |  |  |  |  |
+| T3 LCD et rétroéclairage |  |  |  |  |
+| T4 TouchPad et garde |  |  |  |  |
+| T5 Commandes du TouchPad |  |  |  |  |
+| T6 PIR |  |  |  |  |
+| T7 Capteur environnemental |  |  |  |  |
+| T8 Événements et priorités |  |  |  |  |
+| T9 Télémétrie contrôlée |  |  |  |  |
+| T10 Robustesse et non-régression |  |  |  |  |
 
 # Partie II
 
@@ -156,37 +156,37 @@ Priorités des interruptions (valeur, justification) : E-Stop — encodeur — S
 
 | Période | Réalise | Valide | Module sans matériel de chacun | Routine assembleur ou intégration de chacun |
 |---|---|---|---|---|
-| Entre les séances 1 et 2 (prise en main de l'outil) | | | | |
-| Séance 2 (24 / 27 nov.) | | | | |
-| Jalon J3 (27 nov.) | | | | |
-| Entre les séances 2 et 3 | | | | |
-| Séance 3 (1er / 4 déc.) | | | | |
-| Démonstration finale (4 / 8 déc.) | | | | |
+| Entre les séances 1 et 2 (prise en main de l'outil) |  |  |  |  |
+| Séance 2 (24 / 27 nov.) |  |  |  |  |
+| Jalon J3 (27 nov.) |  |  |  |  |
+| Entre les séances 2 et 3 |  |  |  |  |
+| Séance 3 (1er / 4 déc.) |  |  |  |  |
+| Démonstration finale (4 / 8 déc.) |  |  |  |  |
 
 ## Partie II — Calculs préalables
 
 | Grandeur | Formule | Valeur | Vérifiée par |
 |---|---|---|---|
-| Fronts par fenêtre à 100 tr/min | 100 × 748 / 600 | | T14 |
-| Résolution de la vitesse à 100 tr/min | 1 front / fronts par fenêtre | | T14 |
-| Constante Q16.16 de la fenêtre de 100 ms | 600 × 65 536 / 748, arrondie | | banc du lab. 3 |
-| Fronts du trajet de référence | 105 × 748 | | T13 |
-| Durée prévue du trajet de référence | somme des tours / (tr/min / 60) | | T13 |
-| Commande initiale du régulateur à 150 tr/min | 150 × 100 / 340 | | T14 |
-| Durée de masquage admise | 200 cycles / 4 MHz | | T11 |
-| Occupation de la file au pire cas prévu | | | T11 |
+| Fronts par fenêtre à 100 tr/min | 100 × 748 / 600 |  | T14 |
+| Résolution de la vitesse à 100 tr/min | 1 front / fronts par fenêtre |  | T14 |
+| Constante Q16.16 de la fenêtre de 100 ms | 600 × 65 536 / 748, arrondie |  | banc du lab. 3 |
+| Fronts du trajet de référence | 105 × 748 |  | T13 |
+| Durée prévue du trajet de référence | somme des tours / (tr/min / 60) |  | T13 |
+| Commande initiale du régulateur à 150 tr/min | 150 × 100 / 340 |  | T14 |
+| Durée de masquage admise | 200 cycles / 4 MHz |  | T11 |
+| Occupation de la file au pire cas prévu |  |  | T11 |
 
 ## Partie II — Automate (L5-B)
 
 | Date | Version de la table (somme) | Résultat du vérificateur | Erreurs et contre-exemples | Correction |
 |---|---|---|---|---|
-| | | | | |
+|  |  |  |  |  |
 
 Invariants imposés et ajoutés par l'équipe :
 
 | Invariant | Type | Pourquoi | Résultat |
 |---|---|---|---|
-| | | | |
+|  |  |  |  |
 
 Version fautive conservée : fichier `…`, validation Git `…`, contre-exemple :
 
@@ -199,27 +199,27 @@ Correspondance entre les événements de la file et les entrées du modèle
 
 | Événement, garde | Entrée du modèle |
 |---|---|
-| | |
+|  |  |
 
 Comparaison des traces (au moins trois séquences) :
 
 | Séquence | Pas | Hôte Windows | Hôte Linux | Cible (commande `g`) |
 |---|---|---|---|---|
-| | | | | |
+|  |  |  |  |  |
 
 ## Partie II — File d'événements et sections critiques (L5-A)
 
 | Question | Réponse de l'équipe | Preuve |
 |---|---|---|
-| Producteurs (gestionnaires) et consommateur | | |
-| Instructions placées dans la section critique | | |
-| Politique de débordement retenue, et pourquoi | | |
-| Mécanisme de garantie pour E-Stop et défaut | | |
-| `crit_autotest` (commande `c`) : cas réussis | | |
-| `crit_max_cycles` relevé (repos, scénario S3, rafale) | | |
-| `evq_max` relevé (repos, scénario S3, rafale) | | |
-| Rafale `e` : événements acceptés, refusés, consommés | | |
-| Délai de E-Stop pendant une rafale | | |
+| Producteurs (gestionnaires) et consommateur |  |  |
+| Instructions placées dans la section critique |  |  |
+| Politique de débordement retenue, et pourquoi |  |  |
+| Mécanisme de garantie pour E-Stop et défaut |  |  |
+| `crit_autotest` (commande `c`) : cas réussis |  |  |
+| `crit_max_cycles` relevé (repos, scénario S3, rafale) |  |  |
+| `evq_max` relevé (repos, scénario S3, rafale) |  |  |
+| Rafale `e` : événements acceptés, refusés, consommés |  |  |
+| Délai de E-Stop pendant une rafale |  |  |
 
 ## Partie II — Réglage du régulateur
 
@@ -228,8 +228,8 @@ des gains retenus.
 
 | Essai | Kp (Q8) | Ki (Q8) | Consigne (tr/min) | Vitesse à 2 s | Erreur (%) | Dépassement | Observation |
 |---|---|---|---|---|---|---|---|
-| 1 | 26 | 26 | | | | | |
-| | | | | | | | |
+| 1 | 26 | 26 |  |  |  |  |  |
+|  |  |  |  |  |  |  |  |
 
 Gains retenus : Kp = `…`, Ki = `…` — raison :
 
@@ -237,29 +237,29 @@ Gains retenus : Kp = `…`, Ki = `…` — raison :
 
 | Essai | Relevé | Valeur | Preuve (fichier) |
 |---|---|---|---|
-| T13 | Distance aux changements de segment (20, 60, 75) et à la fin (105) | | |
-| T13 | Reprise après un arrêt au feu rouge : distance avant / après | | |
-| T14 | Erreur 2 s après chaque changement de consigne (quatre segments) | | |
-| T14 | Plafond abaissé pendant S2 : commande et vitesse | | |
-| T15 | Délai entre la commande `s` et l'état DÉFAUT | | |
-| T15 | Délai entre la commande `n` et l'état DÉFAUT | | |
-| T16 | Limitation à 42,0 °C ; arrêt à 52,0 °C ; sortie à 25,0 °C | | |
-| T18 | Initialisation : durée de INIT, ressources vérifiées | | |
-| T18 | Démarrage avec un module absent (commande `d`) | | |
+| T13 | Distance aux changements de segment (20, 60, 75) et à la fin (105) |  |  |
+| T13 | Reprise après un arrêt au feu rouge : distance avant / après |  |  |
+| T14 | Erreur 2 s après chaque changement de consigne (quatre segments) |  |  |
+| T14 | Plafond abaissé pendant S2 : commande et vitesse |  |  |
+| T15 | Délai entre la commande `s` et l'état DÉFAUT |  |  |
+| T15 | Délai entre la commande `n` et l'état DÉFAUT |  |  |
+| T16 | Limitation à 42,0 °C ; arrêt à 52,0 °C ; sortie à 25,0 °C |  |  |
+| T18 | Initialisation : durée de INIT, ressources vérifiées |  |  |
+| T18 | Démarrage avec un module absent (commande `d`) |  |  |
 
 ## Partie II — Portage (L5-C)
 
 | | Windows x86-64 | Linux x86-64 | STM32 |
 |---|---|---|---|
-| Compilateur et version | | | |
-| Options | | | |
-| Tailles : `int`, `long`, pointeur, `size_t` | | | |
-| Fichiers remplacés (couche d'adaptation) | | | |
-| `test_evq` / `test_tableau` | | | |
-| `test_trajet` / `test_regul` / `test_surv` | | | |
-| `test_automate` (traces) | | | |
-| Rejeu de la trace du scénario `…` | | | |
-| Rejeu de la trace du scénario `…` | | | |
+| Compilateur et version |  |  |  |
+| Options |  |  |  |
+| Tailles : `int`, `long`, pointeur, `size_t` |  |  |  |
+| Fichiers remplacés (couche d'adaptation) |  |  |  |
+| `test_evq` / `test_tableau` |  |  |  |
+| `test_trajet` / `test_regul` / `test_surv` |  |  |  |
+| `test_automate` (traces) |  |  |  |
+| Rejeu de la trace du scénario `…` |  |  |  |
+| Rejeu de la trace du scénario `…` |  |  |  |
 
 Différences observées et explication :
 
@@ -269,24 +269,24 @@ Décision technique prise en équipe :
 
 | Élément | Contenu |
 |---|---|
-| Question à trancher | |
-| Options envisagées | |
-| Critères | |
-| Choix et raison | |
-| Résultat observé après coup | |
+| Question à trancher |  |
+| Options envisagées |  |
+| Critères |  |
+| Choix et raison |  |
+| Résultat observé après coup |  |
 
 Désaccord (réel, ou scénario de `dossier/scenario_desaccord.md`) :
 
 | Élément | Contenu |
 |---|---|
-| Objet du désaccord | |
-| Position de chacun | |
-| Démarche suivie | |
-| Issue | |
+| Objet du désaccord |  |
+| Position de chacun |  |
+| Démarche suivie |  |
+| Issue |  |
 
 ## Partie II — Séances
 
-### Séance 2 — date : `…`
+### Séance 2 — date : `27 novembre 2026`
 
 - Objectifs :
 - Réalisé :
@@ -299,7 +299,7 @@ Désaccord (réel, ou scénario de `dossier/scenario_desaccord.md`) :
 - Réalisé :
 - Validations Git :
 
-### Séance 3 — date : `…`
+### Séance 3 — date : `4 decembre 2026`
 
 - Objectifs :
 - Réalisé :
@@ -307,7 +307,7 @@ Désaccord (réel, ou scénario de `dossier/scenario_desaccord.md`) :
 - Validations Git :
 - À faire avant la démonstration finale :
 
-### Démonstration finale — date : `…`
+### Démonstration finale — date : `4 decembre 2026`
 
 - Scénarios S1 à S5 : résultat de chacun
 - Questions posées et réponses à approfondir dans le rapport :
@@ -318,11 +318,11 @@ Durée visée : 7 à 10 minutes. Filmer les scénarios dès qu'ils fonctionnent,
 
 | Séquence | Durée prévue | Qui parle | Ce qui est montré (véhicule, afficheur, télémétrie, code) | Tournée le |
 |---|---|---|---|---|
-| Présentation de l'équipe, du véhicule et de l'architecture | 1 min | | | |
-| Démonstration : conduite manuelle, trajet autonome, arrêt et reprise, E-Stop, défaut injecté | 4 min | | | |
-| Explication technique du membre A : `…` | 1 min 30 | | | |
-| Explication technique du membre B : `…` | 1 min 30 | | | |
-| Bilan : limites, ce qui serait fait autrement | 1 min | | | |
+| Présentation de l'équipe, du véhicule et de l'architecture | 1 min |  |  |  |
+| Démonstration : conduite manuelle, trajet autonome, arrêt et reprise, E-Stop, défaut injecté | 4 min |  |  |  |
+| Explication technique du membre A : `…` | 1 min 30 |  |  |  |
+| Explication technique du membre B : `…` | 1 min 30 |  |  |  |
+| Bilan : limites, ce qui serait fait autrement | 1 min |  |  |  |
 
 Durée finale : `…` — fichier ou lien : `…` — outils de montage : `…`
 
@@ -330,8 +330,8 @@ Durée finale : `…` — fichier ou lien : `…` — outils de montage : `…`
 
 | Source ou outil | Usage |
 |---|---|
-| Compléments du laboratoire 4 et du projet | |
-| Outil `automate.py` | |
-| Corrigé du laboratoire 3 (le cas échéant) | |
-| Fiches techniques, manuel | |
-| Outils d'IA générative (outil, version, usage) ou « aucun usage » | |
+| Compléments du laboratoire 4 et du projet |  |
+| Outil `automate.py` |  |
+| Corrigé du laboratoire 3 (le cas échéant) |  |
+| Fiches techniques, manuel |  |
+| Outils d'IA générative (outil, version, usage) ou « aucun usage » |  |
