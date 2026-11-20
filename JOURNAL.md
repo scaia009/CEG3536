@@ -1,7 +1,7 @@
 # JOURNAL.md — Journal d'équipe, CEG 3536, projet final (automne 2026)
 
 Équipe : `Simon Boisvert`, `Samuel Caiado`, `Tristan Larabie` et `Hassan Hashish` — Section : `A02` — Dépôt Git : `https://github.com/scaia009/CEG3536/tree/Projet`
-— Variante L4-A attribuée : `<0 à 3>` — Journal du laboratoire 3 : `JOURNAL_Lab3.md`
+— Variante L4-A attribuée : `0` — Journal du laboratoire 3 : `JOURNAL_Lab3.md`
 
 # Partie I
 
