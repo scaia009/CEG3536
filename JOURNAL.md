@@ -21,7 +21,7 @@
 | SCL bas / SCL haut | (SCLL + 1) × pas / (SCLH + 1) × pas |  | T1 |
 | Fréquence SCL (avec les délais de synchronisation) |  |  | T1 |
 | `TIMINGR` retenu |  |  | T1 |
-| Durée d'une écriture de deux octets de données | 27 bits / fréquence SCL |  | T1 (DWT) |
+| Durée d'une écriture de deux octets de données | 27 bits / fréquence SCL | 290 µs | T1 (DWT) |
 | Débit SPI | PCLK2 / 2^(BR + 1) |  | T7 |
 | Pire cas de réécriture du LCD | 32 caractères × (position + caractère) × 1 tick |  | T3 |
 | Transactions I²C par seconde au repos |  |  | T10 |
